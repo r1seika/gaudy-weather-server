@@ -19,10 +19,10 @@ function checkParams (ctx) {
   return true;
 }
 
-// Get current weather information
 app.use(async (ctx) => {
-  if (!(await checkParams(ctx))) return;
+  // Get current weather information
   if (ctx.path === '/current') {
+    if (!(await checkParams(ctx))) return;
     try {
       const currentWeatherUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${ctx.query.location}&aqi=yes`;
       const response = await axios.get(currentWeatherUrl);
@@ -33,12 +33,10 @@ app.use(async (ctx) => {
       ctx.body = error;
     }
   }
-});
 
-// Get weather forecast for the next 7 days
-app.use(async (ctx) => {
-  if (!(await checkParams(ctx))) return;
+  // Get weather forecast for the next 7 days
   if (ctx.path === '/forecast') {
+    if (!(await checkParams(ctx))) return;
     try {
       const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${ctx.query.location}&days=7&aqi=yes&alerts=no`;
       const response = await axios.get(forecastUrl);

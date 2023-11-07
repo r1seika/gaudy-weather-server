@@ -1,0 +1,18 @@
+{
+  "apps": {
+    "name": "gaudy-weather-server",
+    "script": "./app.js",
+    "cwd": "./",
+    "instances": 1,
+    "watch": true,
+    "ignore_watch": [
+      "node_modules",
+      "logs"
+    ],
+    "output": "/data/release/pm2-logs/output.log",
+    "error": "/data/release/pm2-logs/error.log",
+    "max_memory_restart": "100M",
+    "merge_logs": true,
+    "log_date_format": "YYYY-MM-DD HH:mm:ss"
+  }
+}
