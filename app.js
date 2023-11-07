@@ -2,7 +2,7 @@ const Koa = require('koa');
 const cors = require('@koa/cors');
 const axios = require('axios');
 const app = new Koa();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 80;
 
 const apiKey = 'a5dfe3897dbc4976a14144200230511';
 
